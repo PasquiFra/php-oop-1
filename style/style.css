@@ -1,0 +1,14 @@
+header {
+    padding: 20px;
+    color: white;
+    text-align: center;
+    height: 100px;
+}
+
+body {
+    background-color: rgba(12, 12, 97, 0.829);
+}
+
+.container {
+    width: 800px;
+}
