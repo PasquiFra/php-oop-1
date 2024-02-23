@@ -1,82 +1,11 @@
 <?php 
+require __DIR__ . '/database/db.php';
 
-class Movie {
-    public $title;
-    public $description;
-    public $release_year;
+require_once __DIR__ . '/Models/Movie.php';
+require_once __DIR__ . '/Models/Actor.php';
+require_once __DIR__ . '/Models/Director.php';
 
-    public function __construct($title, $description, $release_year, Director $director, Actor $actor1, Actor $actor2, Actor $actor3) {
-        $this->title = $title;
-        $this->description = $description;
-        $this->release_year = $release_year;
-        $this->director = $director;
-        $this->actor1 = $actor1;
-        $this->actor2 = $actor2;
-        $this->actor3 = $actor3;
-    }
 
-    public function getMovieInfo($data) {   
-        if($data === 'title') return $this -> title;
-        if($data === 'description') return $this -> description;
-        if($data === 'release_year') return $this -> release_year;
-    }
-
-    public function getCast(){
-        return $actors = [
-            'actor1' => $this->actor1,
-            'actor2' => $this->actor2,
-            'actor3' => $this->actor3
-        ];
-    }
-}
-
-class Director {
-    public $first_name;
-    public $last_name;
-
-    public function __construct($first_name, $last_name){
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
-    }
-
-    public function getFullName(){
-        return $this->first_name . ' ' . $this->last_name;
-    }
-}
-
-class Actor {
-    public $first_name;
-    public $last_name;
-
-    public function __construct($first_name, $last_name){
-        $this->first_name = $first_name;
-        $this->last_name = $last_name;
-    }
-
-    public function getFullName(){
-        return $this->first_name . ' ' . $this->last_name;
-    }
-}
-
-// Plots
-$plot_inception = 'Dom Cobb possiede una qualifica speciale: è in grado di inserirsi nei sogni altrui per prelevare i segreti nascosti nel più profondo del subconscio. Viene contattato da Saito, un potentissimo industriale giapponese.';
-$plot_ind_day = 'La Terra viene invasa da astronavi aliene che stazionano nei cieli delle principali città. Uno scienziato scopre che i velivoli si stanno coordinando per un attacco che ha come obiettivo l\'estinzione del genere umano.';
-
-// Directors
-$chris_nolan= new Director ('Christopher', 'Nolan');
-$rol_emm= new Director ('Roland', 'Emmerich');
-
-// Actors
-$will_smith= new Actor ('Will', 'Smith');
-$bill_pullm= new Actor ('Bill', 'Pullman');
-$jeff_gold= new Actor ('Jeff', 'Goldblum');
-$leo_dicap= new Actor ('Leonardo', 'DiCaprio');
-$jos_gordon= new Actor ('Joseph', 'Gordon-Levitt');
-$cill_murphy= new Actor ('Cillian', 'Murphy');
-
-// Movies
-$inception= new Movie('Inception', $plot_inception, '2010', $chris_nolan, $leo_dicap, $jos_gordon, $cill_murphy);
-$independence_day= new Movie('Independence Day', $plot_ind_day, '1996', $rol_emm, $will_smith, $bill_pullm, $jeff_gold);
 
 // Array Movies
 $films = [$inception, $independence_day];
